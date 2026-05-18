@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b3vbdtytt662r"]
+
+[ext_resource type="Script" uid="uid://quhgqpmw77pb" path="res://actors/player.gd" id="1_niuxy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cp522"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cp522"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1317840680]
+script = ExtResource("1_niuxy")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1010821315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_cp522")
+debug_color = Color(0.7985249, 0.4483608, 0.24049196, 0.7058824)
+
+[node name="WorldModel" type="Node3D" parent="." unique_id=149243522]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldModel" unique_id=1662570560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_cp522")
+
+[node name="Head" type="Node3D" parent="." unique_id=303071293]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.25)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=201915185]
+unique_name_in_owner = true
+cull_mask = 1048573

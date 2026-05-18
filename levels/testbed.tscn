@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cujp6sookdkdn"]
+
+[ext_resource type="PackedScene" uid="uid://b3vbdtytt662r" path="res://actors/player.tscn" id="1_ckgkk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ckgkk"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ot6q2"]
+sky_material = SubResource("ProceduralSkyMaterial_ckgkk")
+
+[sub_resource type="Environment" id="Environment_vdaji"]
+background_mode = 2
+sky = SubResource("Sky_ot6q2")
+tonemap_mode = 2
+
+[node name="Testbed" type="Node3D" unique_id=1871952258]
+
+[node name="Skybox" type="WorldEnvironment" parent="." unique_id=2076802507]
+environment = SubResource("Environment_vdaji")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=2091181817]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1317840680 instance=ExtResource("1_ckgkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 25)
+
+[node name="LevelGeometry" type="CSGCombiner3D" parent="." unique_id=1768049870]
+use_collision = true
+
+[node name="Ground" type="CSGBox3D" parent="LevelGeometry" unique_id=758142745]
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelGeometry" unique_id=661811053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 5.5, 0)
+size = Vector3(1, 10, 21)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelGeometry" unique_id=619162445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 5.5, 0)
+size = Vector3(1, 10, 21)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="LevelGeometry" unique_id=305487437]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 5.5, -11)
+size = Vector3(1, 10, 33)
+
+[node name="Door" type="CSGBox3D" parent="LevelGeometry/CSGBox3D3" unique_id=1404973631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -6)
+operation = 2
+size = Vector3(1, 4, 3.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="LevelGeometry" unique_id=937572008]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 5.5, 11)
+size = Vector3(1, 10, 33)
+
+[node name="Door" type="CSGBox3D" parent="LevelGeometry/CSGBox3D4" unique_id=517511067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 4.5)
+operation = 2
+size = Vector3(1, 4, 3.5)
+
+[node name="InsideWall" type="CSGBox3D" parent="LevelGeometry" unique_id=949592464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.25, 2, -2)
+use_collision = true
+size = Vector3(10.5, 3, 1)
+
+[node name="Hole" type="CSGCylinder3D" parent="LevelGeometry/InsideWall" unique_id=55927228]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.01015377)
+operation = 2
+height = 1.5
+sides = 10
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="LevelGeometry" unique_id=117393701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.25, -15.25)
+size = Vector3(1, 4, 7.5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="LevelGeometry" unique_id=24353758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.25, -15.25)
+size = Vector3(1, 4, 7.5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="LevelGeometry" unique_id=283032716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.25, -19.75)
+size = Vector3(20, 4, 1.5)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="LevelGeometry" unique_id=513066023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -18.5)
+size = Vector3(3, 1, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="LevelGeometry" unique_id=1906422049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4.5, 0)
+radius = 1.0
+height = 8.0
+sides = 10
