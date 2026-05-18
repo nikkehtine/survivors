@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const SPRINT_SPEED = 2
+const SPRINT_MULTIIPLIER = 2
 
 @export var look_sensitivity: float = 0.003
 
