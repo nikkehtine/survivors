@@ -24,7 +24,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1317840680 instance=ExtResource("1_ckgkk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 25)
 
 [node name="LevelGeometry" type="CSGCombiner3D" parent="." unique_id=1768049870]
 use_collision = true
