@@ -1,2 +1,10 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+
+# Treat assets as binary (i.e. don't try to diff them)
+*.ttf binary
+*.png binary
+*.svg binary
+
+# Skip generated files
+*.import    -diff
